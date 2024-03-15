@@ -14,5 +14,6 @@ import { BookSchema } from './entities/book.entity';
     ]),
   ],
   providers: [BookResolver, BookService],
+  exports: [BookService],
 })
 export class BookModule {}
