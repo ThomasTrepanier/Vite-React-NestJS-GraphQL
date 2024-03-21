@@ -1,13 +1,12 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Logger, Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { GraphQLModule } from '@nestjs/graphql';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
-import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { EventEmitterModule } from '@nestjs/event-emitter';
 import { BookModule } from './book/book.module';
-import { AuthorModule } from './author/author.module';
 
 @Module({
   imports: [
@@ -40,7 +39,6 @@ import { AuthorModule } from './author/author.module';
     }),
     EventEmitterModule.forRoot(),
     BookModule,
-    AuthorModule,
   ],
   controllers: [AppController],
   providers: [AppService],

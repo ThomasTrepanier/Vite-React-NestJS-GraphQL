@@ -16,47 +16,22 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type Author = {
-  __typename?: 'Author';
-  _id: Scalars['ID']['output'];
-  /** Books written by the author */
-  books: Array<Book>;
-  name: Scalars['String']['output'];
-};
-
 export type Book = {
   __typename?: 'Book';
   _id: Scalars['ID']['output'];
-  /** Author of the book */
-  author?: Maybe<Author>;
   title: Scalars['String']['output'];
 };
 
-export type CreateAuthorInput = {
-  /** Name of the author */
-  name: Scalars['String']['input'];
-};
-
 export type CreateBookInput = {
-  /** Author of the book */
-  author: Scalars['String']['input'];
   /** Title of the book */
   title: Scalars['String']['input'];
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
-  createAuthor: Author;
   createBook: Book;
-  removeAuthor: Author;
   removeBook: Book;
-  updateAuthor: Author;
   updateBook: Book;
-};
-
-
-export type MutationCreateAuthorArgs = {
-  createAuthorInput: CreateAuthorInput;
 };
 
 
@@ -65,18 +40,8 @@ export type MutationCreateBookArgs = {
 };
 
 
-export type MutationRemoveAuthorArgs = {
-  authorId: Scalars['String']['input'];
-};
-
-
 export type MutationRemoveBookArgs = {
   bookId: Scalars['String']['input'];
-};
-
-
-export type MutationUpdateAuthorArgs = {
-  updateAuthorInput: UpdateAuthorInput;
 };
 
 
@@ -86,15 +51,8 @@ export type MutationUpdateBookArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  author: Author;
-  authors: Array<Author>;
   book: Book;
   books: Array<Book>;
-};
-
-
-export type QueryAuthorArgs = {
-  authorId: Scalars['String']['input'];
 };
 
 
@@ -102,16 +60,8 @@ export type QueryBookArgs = {
   bookId: Scalars['String']['input'];
 };
 
-export type UpdateAuthorInput = {
-  _id: Scalars['ID']['input'];
-  /** Name of the author */
-  name?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type UpdateBookInput = {
   _id: Scalars['ID']['input'];
-  /** Author of the book */
-  author?: InputMaybe<Scalars['String']['input']>;
   /** Title of the book */
   title?: InputMaybe<Scalars['String']['input']>;
 };
